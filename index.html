@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script src="https://docs.opencv.org/4.5.1/opencv.js"></script>
+        <script src="./main.js"></script>
+        <style>
+
+.canvas-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    padding: 10px;
+}
+.canvas-wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.hide {
+    display: none;
+}
+
+        </style>
+    </head>
+    <body onload=main();>
+        <h1>GrabCut Annotator</h1>
+        <div style="display: flex;">
+            <div class="canvas-wrapper">
+                <canvas id="outcanvas" height="320px" width="320px" style="border:1px solid black"></canvas>
+                <canvas id="layer2" height="320px" width="320px" style="border:1px solid black"></canvas>
+            </div>
+            <div class="canvas-wrapper">
+                <canvas id="outcanvas2" height="320px" width="320px" style="border:1px solid black"></canvas>
+                <canvas id="layer3" height="320px" width="320px" style="border:1px solid black"></canvas>
+            </div>
+        </div>
+        <div class="canvas-wrapper">
+            <canvas id="canvas" height="320px" width="320px" style="border:1px solid black"></canvas>
+            <canvas id="layer" height="320px" width="320px" style="border:1px solid black"></canvas>
+        </div>
+        <form>
+            <input type="file" id="input">
+            <input type="radio" name="prop" id="front" checked="checked">front
+            <input type="radio" name="prop" id="back">back
+        </form>
+        <button id="download" class="hide">download masked image</button>
+        <canvas id="hidden-canvas" style="display: none;"></canvas>
+    </body>
+</html>
